@@ -1,0 +1,8 @@
+services:
+    auth.provider.oauth.service.evesso:
+        class: cyerus\evesso\core\evesso
+        arguments:
+            - @config
+            - @request
+        tags:
+            - { name: auth.provider.oauth.service }
