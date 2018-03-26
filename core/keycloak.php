@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* EveSSO - An phpBB extension adding EVE Online SSO authentication to your forum.
+* Keycloak - A phpBB extension adding ECT UA IDP SSO authentication to your forum.
 *
-* @copyright (c) 2015 Jordy Wille (http://github.com/cyerus)
+* @copyright (c) 2018 David Silva (https://www.davidsilva.pt)
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -11,7 +11,7 @@
 namespace ectua\keycloak\core;
 
 /**
-* EVE Online SSO / OAuth2 service
+* ECT UA IDP / OAuth2 service
 *
 * @package auth
 */
@@ -71,7 +71,7 @@ class keycloak extends \phpbb\auth\provider\oauth\service\base
 			throw new phpbb\auth\provider\oauth\service\exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
 		}
 
-		// This was a callback request from EVE Online SSO, get the token
+		// This was a callback request from ECT UA IDP, get the token
 		$this->service_provider->requestAccessToken($this->request->variable('code', ''));
 		
 		// Send a request to /verify to determine user information
