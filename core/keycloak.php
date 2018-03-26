@@ -87,7 +87,7 @@ class keycloak extends \phpbb\auth\provider\oauth\service\base
 	*/
 	public function perform_token_auth()
 	{
-		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Evesso))
+		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Keycloak))
 		{
 			throw new phpbb\auth\provider\oauth\service\exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
 		}

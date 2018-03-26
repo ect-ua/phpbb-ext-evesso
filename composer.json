@@ -1,5 +1,5 @@
 {
-    "name": "ectua/keycloakauth",
+    "name": "ectua/keycloak",
     "type": "phpbb-extension",
     "description": "ECT UA IdP Auth for phpBB 3.2",
     "homepage": "https://github.com/ect-ua/phpbb-ext-keycloak",

@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* EveSSO - An phpBB extension adding EVE Online SSO authentication to your forum.
+* Keycloak - A phpBB extension adding ECT UA IDP authentication to phpBB.
 *
-* @copyright (c) 2015 Jordy Wille (http://github.com/cyerus)
+* @copyright (c) 2018 David Silva (https://www.davidsilva.pt)
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */

@@ -45,5 +45,5 @@ if (empty($lang) || !is_array($lang))
  * @TODO:Change this to uppercase things.
  */ 
 $lang = array_merge($lang, array(
-	'AUTH_PROVIDER_OAUTH_SERVICE_EVESSO'	=> 'ECT UA IDP SSO'
+	'AUTH_PROVIDER_OAUTH_SERVICE_KEYCLOAK'	=> 'Use ECT UA IDP',
 ));
