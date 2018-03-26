@@ -1,6 +1,6 @@
 services:
-    auth.provider.oauth.service.evesso:
-        class: cyerus\evesso\core\evesso
+    auth.provider.oauth.service.keycloak:
+        class: ectua\keycloak\core\keycloak
         arguments:
             - @config
             - @request

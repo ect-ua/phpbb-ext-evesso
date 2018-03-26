@@ -8,14 +8,14 @@
 *
 */
 
-namespace cyerus\evesso\core;
+namespace ectua\keycloak\core;
 
 /**
 * EVE Online SSO / OAuth2 service
 *
 * @package auth
 */
-class evesso extends \phpbb\auth\provider\oauth\service\base
+class keycloak extends \phpbb\auth\provider\oauth\service\base
 {
 	/**
 	* phpBB config
@@ -43,11 +43,11 @@ class evesso extends \phpbb\auth\provider\oauth\service\base
 		$this->request = $request;
 
 		global $user;
-		$user->add_lang_ext('cyerus/evesso', 'evesso');
+		$user->add_lang_ext('ectua/keycloak', 'keycloak');
 		
 		// TODO: Find a better way to load this class
 		global $phpbb_root_path;
-		require_once($phpbb_root_path . '/ext/cyerus/evesso/service/Evesso.php');
+		require_once($phpbb_root_path . '/ext/ectua/keycloak/service/Keycloak.php');
 	}
 
 	/**
@@ -56,8 +56,8 @@ class evesso extends \phpbb\auth\provider\oauth\service\base
 	public function get_service_credentials()
 	{
 		return array(
-			'key'		=> $this->config['auth_oauth_evesso_key'],
-			'secret'	=> $this->config['auth_oauth_evesso_secret'],
+			'key'		=> $this->config['auth_oauth_keycloak_key'],
+			'secret'	=> $this->config['auth_oauth_keycloak_secret'],
 		);
 	}
 
@@ -66,7 +66,7 @@ class evesso extends \phpbb\auth\provider\oauth\service\base
 	*/
 	public function perform_auth_login()
 	{
-		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Evesso))
+		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Keycloak))
 		{
 			throw new phpbb\auth\provider\oauth\service\exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
 		}
@@ -75,11 +75,11 @@ class evesso extends \phpbb\auth\provider\oauth\service\base
 		$this->service_provider->requestAccessToken($this->request->variable('code', ''));
 		
 		// Send a request to /verify to determine user information
-		$result = json_decode($this->service_provider->request('https://login.eveonline.com/oauth/verify'), true);
+		$result = json_decode($this->service_provider->request('https://idp.ect-ua.com/auth/realms/master/protocol/openid-connect/userinfo'), true);
 
 		// Return the CharacterOwnerHash is this is unique for each character on each account.
 		// If a character is transferred, the CharacterOwnerHash is newly generated.
-		return $result['CharacterOwnerHash'];
+		return $result['preferred_username'];
 	}
 
 	/**
@@ -93,10 +93,10 @@ class evesso extends \phpbb\auth\provider\oauth\service\base
 		}
 
 		// Send a request to /verify to determine user information
-		$result = json_decode($this->service_provider->request('https://login.eveonline.com/oauth/verify'), true);
+		$result = json_decode($this->service_provider->request('https://idp.ect-ua.com/auth/realms/master/protocol/openid-connect/userinfo'), true);
 		
 		// Return the CharacterOwnerHash is this is unique for each character on each account.
 		// If a character is transferred, the CharacterOwnerHash is newly generated.
-		return $result['CharacterOwnerHash'];
+		return $result['preferred_username'];
 	}
 }

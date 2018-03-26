@@ -1,2 +1,2 @@
 # phpbb-ext-evesso
-phpBB 3.1.x extension adding EVE Online SSO / OAuth2 authentication your forum, allowing you to securely log in to the forum with your EVE Online account.
+phpBB 3.2.x extension adding ECT UA IDP / OAuth2 authentication your forum, allowing you to securely log in to the forum with your ECT UA account.

@@ -1,25 +1,31 @@
 {
-   "name": "cyerus/evesso",
-   "type": "phpbb-extension",
-   "description": "This extension adds EVE Online SSO / OAuth2 authentication to your phpBB 3.1.x forum.",
-   "homepage": "https://github.com/cyerus/phpbb-ext-evesso",
-   "version": "1.0.0-a1",
-   "license": "GPL-2.0",
-   "authors": [
-      {
-         "name": "Jordy Wille",
-         "email": "cyerus.eve@gmail.com",
-         "homepage": "https://github.com/cyerus",
-         "role": "Developer"
-      }
-   ],
-   "require": {
-      "php": ">=5.3.3"
-   },
-   "extra": {
-      "display-name": "EVE Online SSO",
-      "soft-require": {
-         "phpbb/phpbb": ">=3.1.3,<3.2.*@dev"
-      }
-   }
+    "name": "ectua/keycloakauth",
+    "type": "phpbb-extension",
+    "description": "ECT UA IdP Auth for phpBB 3.2",
+    "homepage": "https://github.com/ect-ua/phpbb-ext-keycloak",
+    "version": "0.1.0",
+    "time": "2018-03-25",
+    "keywords": ["phpbb", "extension", "ectua", "keycloak"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "David Silva",
+            "email": "david@davidsilva.pt",
+            "homepage": "https://www.davidsilva.pt",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Keycloak Authentication",
+        "soft-require": {
+            "phpbb/phpbb": "~3.2"
+        }
+    }
 }

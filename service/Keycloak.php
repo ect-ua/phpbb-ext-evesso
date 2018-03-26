@@ -18,13 +18,13 @@ use OAuth\Common\Http\Client\ClientInterface;
 use OAuth\Common\Storage\TokenStorageInterface;
 use OAuth\Common\Http\Uri\UriInterface;
 
-class Evesso extends AbstractService
+class Keycloak extends AbstractService
 {
     public function __construct(Credentials $credentials, ClientInterface $httpClient, TokenStorageInterface $storage, $scopes = array(), UriInterface $baseApiUri = null)
     {
         parent::__construct($credentials, $httpClient, $storage, $scopes, $baseApiUri);
         if( null === $baseApiUri ) {
-            $this->baseApiUri = new Uri('https://login.eveonline.com/oauth/');
+            $this->baseApiUri = new Uri('https://idp.ect-ua.com/auth');
         }
     }
     
@@ -36,6 +36,8 @@ class Evesso extends AbstractService
      */
     protected function getAuthorizationMethod()
     {
+        // TODO: which one?
+        // return static::AUTHORIZATION_METHOD_QUERY_STRING;
         return static::AUTHORIZATION_METHOD_HEADER_BEARER;
     }
 	
@@ -44,7 +46,7 @@ class Evesso extends AbstractService
      */
     public function getAuthorizationEndpoint()
     {
-        return new Uri('https://login.eveonline.com/oauth/authorize');
+        return new Uri('https://idp.ect-ua.com/auth/realms/master/protocol/openid-connect/auth');
     }
 
     /**
@@ -52,7 +54,7 @@ class Evesso extends AbstractService
      */
     public function getAccessTokenEndpoint()
     {
-        return new Uri('https://login.eveonline.com/oauth/token');
+        return new Uri('https://idp.ect-ua.com/auth/realms/master/protocol/openid-connect/token');
     }
 
     /**
